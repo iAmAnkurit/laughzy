@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:laughzy/background-image/backgroundImage.dart';
+import 'package:laughzy/main-screen/mainScreen.dart';
 
 class Category extends StatefulWidget {
   const Category({super.key});
@@ -16,7 +17,14 @@ class _CategoryState extends State<Category> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           GestureDetector(
-            onTap: () => {},
+            onTap: () {
+              setState(() {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (content) => MainScreen(name: firstHeader)));
+              });
+            },
             child: Material(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -32,14 +40,21 @@ class _CategoryState extends State<Category> {
                   child: Text(
                     firstHeader,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold,fontSize: 18),
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
               ),
             ),
           ),
           GestureDetector(
-            onTap: () => {},
+            onTap: ()  {
+              setState(() {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (content) => MainScreen(name: secondHeader)));
+              });
+            },
             child: Material(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
@@ -55,7 +70,7 @@ class _CategoryState extends State<Category> {
                   child: Text(
                     secondHeader,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold,fontSize: 18),
+                        fontWeight: FontWeight.bold, fontSize: 18),
                   ),
                 ),
               ),
@@ -75,9 +90,9 @@ class _CategoryState extends State<Category> {
           backgroundColor: Colors.black,
           drawer: Drawer(
 
-            // backgroundColor:Colors.red,
-            //   surfaceTintColor:Colors.white70
-          ),
+              // backgroundColor:Colors.red,
+              //   surfaceTintColor:Colors.white70
+              ),
           appBar: AppBar(
             leading: Builder(
               builder: (BuildContext context) {
@@ -90,7 +105,8 @@ class _CategoryState extends State<Category> {
                   onPressed: () {
                     Scaffold.of(context).openDrawer();
                   },
-                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  tooltip:
+                      MaterialLocalizations.of(context).openAppDrawerTooltip,
                 );
               },
             ),
@@ -121,56 +137,63 @@ class _CategoryState extends State<Category> {
               )
             ],
           ),
-
           body: SingleChildScrollView(
             child: Container(
-              margin: const EdgeInsets.only(left: 10, right: 10,top: 20),
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/laugh.jpg'),
-                    fit: BoxFit.cover),
-                borderRadius: BorderRadius.all(Radius.circular(30)),
-              ),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow('Programming','Miscellaneous'),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow("Corona" , "Teacher" ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow("Dark" , "Old",),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow("Fat" , "Skinny"),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow("Bald" , "Stupid" ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow("Tall" , "Short" ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  categoryRow("Space" , "Name" ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Text("--Developer: @Ankurit--",style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold,fontFamily: "Courgette"),),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
-              )
-            ),
+                margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/laugh.jpg'),
+                      fit: BoxFit.cover),
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow('Programming', 'Miscellaneous'),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow("Corona", "Teacher"),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow(
+                      "Dark",
+                      "Old",
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow("Fat", "Skinny"),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow("Bald", "Stupid"),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow("Tall", "Short"),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    categoryRow("Space", "Name"),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "--Developer: @Ankurit--",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Courgette"),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                )),
           ),
         )
       ],
